@@ -4,7 +4,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.hears('wow', (ctx) => {
   console.log(ctx.message);
-  ctx.telegram.deleteMessage(ctx.message.chat.id, ctx.message.message.id)
+  ctx.telegram.deleteMessage(ctx.message.chat.id, ctx.message.message_id)
   .catch((err) => {
     console.log('Ooops', err);
   });

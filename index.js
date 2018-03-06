@@ -9,4 +9,11 @@ bot.hears(/\bwow\b/i, (ctx) => {
   });
 });
 
+bot.hears(/^acknowledged$/i, (ctx) => {
+  ctx.telegram.deleteMessage(ctx.message.chat.id, ctx.message.message_id)
+  .catch((err) => {
+    console.log('Something blew up:', err);
+  });
+});
+
 module.exports = bot;

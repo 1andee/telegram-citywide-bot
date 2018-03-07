@@ -3,8 +3,6 @@ const { reply } = Telegraf
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.hears(/\bwow\b/i, (ctx) => {
-  console.log(`############\nMESSAGE RECEIVED:\n`);
-  console.log(JSON.stringify(ctx.message));
   if (!admin(ctx.message.from.username)) {
     console.log(`############\nDELETING MESSAGE:\n`);
     console.log(JSON.stringify(ctx.message));
@@ -16,8 +14,6 @@ bot.hears(/\bwow\b/i, (ctx) => {
 });
 
 bot.hears(/^acknowledged$/i, (ctx) => {
-  console.log(`############\nMESSAGE RECEIVED:\n`);
-  console.log(JSON.stringify(ctx.message));
   if (!admin(ctx.message.from.username)) {
     console.log(`############\nDELETING MESSAGE:\n`);
     console.log(JSON.stringify(ctx.message));
@@ -30,6 +26,7 @@ bot.hears(/^acknowledged$/i, (ctx) => {
 
 admin = (user) => {
   if (user === "ianduke" ||
+      user === "jeremycohn" ||
       user === "johnhanleyphoto") {
     return true;
   } else {

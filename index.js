@@ -3,7 +3,8 @@ const { reply } = Telegraf
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.hears(/\bwow\b/i, (ctx) => {
-  console.log(`############\nDELETING MESSAGE:\n${ctx.message}`);
+  console.log(`############\nDELETING MESSAGE:\n`);
+  console.log(JSON.stringify(ctx.message));
   ctx.telegram.deleteMessage(ctx.message.chat.id, ctx.message.message_id)
   .catch((err) => {
     console.log('Something blew up:', err);
@@ -11,7 +12,8 @@ bot.hears(/\bwow\b/i, (ctx) => {
 });
 
 bot.hears(/^acknowledged$/i, (ctx) => {
-  console.log(`############\nDELETING MESSAGE:\n${ctx.message}`);
+  console.log(`############\nDELETING MESSAGE:\n`);
+  console.log(JSON.stringify(ctx.message));
   ctx.telegram.deleteMessage(ctx.message.chat.id, ctx.message.message_id)
   .catch((err) => {
     console.log('Something blew up:', err);

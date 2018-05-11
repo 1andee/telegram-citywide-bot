@@ -20,6 +20,17 @@ bot.hears(/^acknowledge/i, (ctx) => {
   };
 });
 
+bot.command('/reminder', (ctx) => {
+  if (admin(ctx.message.from.username)) {
+    ctx.reply("A reminder... CH-1 is only for confirmed incidents or significant updates. Please use CH-2 for any side chatter, pics, info about rehab units, etc. Many of us have notifications only active on CH-1, and we don’t all have normal schedules, so even a message in the middle of the day may be waking someone up. Any questions, just let John, Ian or Jeremy know.")
+    .catch((err) => {
+      console.log('Something blew up:', err);
+    });
+  };
+});
+
+bot.command('/quote', ctx => ctx.reply(quoteArray[Math.floor(Math.random() * quoteArray.length)]));
+
 admin = (user) => {
   if (user === "ianduke" ||
       user === "jeremycohn" ||

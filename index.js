@@ -29,8 +29,6 @@ bot.command('/reminder', (ctx) => {
   };
 });
 
-bot.command('/quote', ctx => ctx.reply(quoteArray[Math.floor(Math.random() * quoteArray.length)]));
-
 admin = (user) => {
   if (user === "ianduke" ||
       user === "jeremycohn" ||

@@ -3,6 +3,7 @@ const { reply } = Telegraf
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.hears(/\bwow\b/i, (ctx) => {
+  console.log('bot heard wow');
   if (!admin(ctx.message.from.username)) {
     ctx.telegram.deleteMessage(ctx.message.chat.id, ctx.message.message_id)
     .catch((err) => {
